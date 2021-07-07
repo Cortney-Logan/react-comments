@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Content from "./components/Content.js";
+import Input from "./components/Input.js";
+import Comment from "./components/Comment.js";
 
 function App() {
+  const [comments, setComments] = useState([
+    "OMG so cute",
+    "<3",
+    "What is their name?",
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Content></Content>
+      <Input comments={comments} setComments={setComments}></Input>
+      <Comment comments={comments}></Comment>
     </div>
   );
 }
